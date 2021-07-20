@@ -17,10 +17,10 @@ ISR(TIMER0_OVF_vect)
 	
 }
 void initTIMER1()
-{	// TCNT0 = 5 pentru a porni de la 5 pana la 255, adica 250 de cicluri
-	TCNT0 = 5; //pt a putea incrementa pana la 255 de 255 ori
-	setPin(&TIMSK, 1, TOIE0, HIGH); // bit de intrerupere timer0	
-	setPin(&TCCR0, 1, CS02, HIGH); // prescalar 256 pt ca activam CS02 din registrul TCCR0
+{	
+	TCNT0 = 5; 
+	setPin(&TIMSK, 1, TOIE0, HIGH); 	
+	setPin(&TCCR0, 1, CS02, HIGH); 
 }
 
 void time()
