@@ -1,7 +1,7 @@
 
 #include "Library.h"
 
-/*
+
 volatile uint8_t  count = 0;
 uint8_t hours = 23, minutes = 59, seconds = 55;
 
@@ -59,4 +59,4 @@ void timeDisplay()
 		setPin(&PORTD, 2, 0, HIGH);
 	}
 	
-}*/
+}
