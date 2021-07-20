@@ -35,9 +35,9 @@ void shiftOut1(unsigned char data)
 void initTIMER()
 {
 	sei();
-	TCNT0 = 5; //porneste de la 5 la 255
-	setPin(&TIMSK, 1, TOIE0, HIGH); // bit de intrerupere timer0
-	setPin(&TCCR0, 1, CS02, HIGH); // prescalar 256 pt ca activam CS02 din registrul TCCR0
+	TCNT0 = 5; 
+	setPin(&TIMSK, 1, TOIE0, HIGH);
+	setPin(&TCCR0, 1, CS02, HIGH); 
 	setPortIO(&DDRB, 0xFF);
 	setPin(&PORTB, 1, DIGIT1, OFF);
 	setPin(&PORTB, 1, DIGIT2, OFF);
@@ -47,111 +47,6 @@ void initTIMER()
 
 ISR (TIMER0_OVF_vect)
 {	
-	
-	/*if(buttonState(&PIND, PD2) == 1 && OPEN == 1 && alarm_button == 0)
-	{
-		alarm_button = 1;
-	}
-	
-	else if(buttonState(&PIND, PD2) == 0 && alarm_button == 1 && alarm == 0)
-	{
-		placeCursor(2, 4);
-		displayLCD("ALARMA: ");
-		alarm = 1;
-		PORTB &= ~(1<<PB2);
-	}
-	if(alarm_button == 1)
-	{
-		//ORE
-		if(buttonState(&PINA, PA0) == 1 && minus_h_button == 0)
-		{
-			minus_h_button = 1;
-		}
-		else if(buttonState(&PINA, PA0) == 0 && minus_h_button == 1)
-		{
-			
-			minus_h_button = 0;
-			if(alarm_h == 0)
-			{
-				alarm_h = 24;
-			}
-			alarm_h--;
-		}
-		if(buttonState(&PINA, PA2) == 1 && plus_h_button == 0)
-		{
-			plus_h_button = 1;
-		}
-		else if(buttonState(&PINA, PA2) == 0 && plus_h_button == 1)
-		{
-			alarm_h++;
-			plus_h_button = 0;
-			if(alarm_h >= 24)
-			{
-				alarm_h = 0;
-			}
-		}
-		//MINUTE
-		if(buttonState(&PINA, PA3) == 1 && minus_m_button == 0)
-		{
-			minus_m_button = 1;
-		}
-		else if(buttonState(&PINA, PA3) == 0 && minus_m_button == 1)
-		{
-			
-			minus_m_button = 0;
-			if(alarm_m == 0)
-			{
-				alarm_m = 60;
-				alarm_h--;
-			}
-			alarm_m--;
-		}
-		if(buttonState(&PINA, PA4) == 1 && plus_m_button == 0)
-		{
-			plus_m_button = 1;
-		}
-		else if(buttonState(&PINA, PA4) == 0 && plus_m_button == 1)
-		{
-			alarm_m++;
-			plus_m_button = 0;
-			if(alarm_m > 59)
-			{
-				alarm_m = 0;
-				alarm_h++;
-			}
-		}
-		hour[1] = alarm_h % 10;
-		hour[0] = alarm_h / 10;
-		
-		min[0] = alarm_m / 10;
-		min[1] = alarm_m % 10;
-
-		placeCursor(2, 11);
-		writeLCD(hour[0] + '0');
-		writeLCD(hour[1] + '0');
-		writeLCD(':');
-		writeLCD(min[0] + '0');
-		writeLCD(min[1] + '0');
-		
-		if(buttonState(&PINA, PA5) == 1 && ok_button == 0)
-		{
-			ok_button = 1;
-		}
-		else if(buttonState(&PINA, PA5) == 0 && ok_button == 1)
-		{
-			alarm_button = 0;
-			alarma_setata = 1;
-		}
-		
-	}
-	if(alarm_h == hours && alarm_m == minutes && alarma_setata)
-	{
-		clearLCD();
-		centerLCD("ALARMA!", 1);
-		_delay_us(5000);
-		clearLCD();
-	}*/
-
 	TCNT0 = 5;
 	writeTemperature(OPEN);
 	
@@ -181,7 +76,7 @@ ISR (TIMER0_OVF_vect)
 	}
 	cnt++;
 	
-	if(cnt >= 40) //103
+	if(cnt >= 40) 
 	{
 		++minutes;
 		cnt = 0;
